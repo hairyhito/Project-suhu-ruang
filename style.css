@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #0f0c29; 
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden; 
+}
+
+/* --- Animasi Liquid Glass Background --- */
+.liquid-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.bg-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px); /* Blur ekstrem untuk efek cair */
+    opacity: 0.8;
+    mix-blend-mode: screen; /* Agar warna berbaur saat bertumpukan */
+}
+
+/* Penempatan & Warna 5 Titik Cahaya */
+.blob-1 {
+    width: 600px; height: 600px;
+    background: #ff007f;
+    top: -10%; left: -10%;
+    animation: liquidMove 15s infinite alternate ease-in-out;
+}
+.blob-2 {
+    width: 700px; height: 700px;
+    background: #00f2fe;
+    bottom: -20%; right: -10%;
+    animation: liquidMove 20s infinite alternate-reverse ease-in-out;
+}
+.blob-3 {
+    width: 500px; height: 500px;
+    background: #4facfe;
+    top: 40%; left: 40%;
+    animation: liquidMove 18s infinite alternate ease-in-out;
+}
+.blob-4 {
+    width: 400px; height: 400px;
+    background: #f093fb;
+    bottom: 10%; left: 10%;
+    animation: liquidMove 25s infinite alternate-reverse ease-in-out;
+}
+.blob-5 {
+    width: 450px; height: 450px;
+    background: #f5576c;
+    top: 10%; right: 20%;
+    animation: liquidMove 22s infinite alternate ease-in-out;
+}
+
+/* Keyframe untuk pergerakan tak beraturan */
+@keyframes liquidMove {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(150px, -100px) scale(1.2) rotate(45deg); }
+    66% { transform: translate(-100px, 150px) scale(0.8) rotate(-45deg); }
+    100% { transform: translate(0, 0) scale(1.1) rotate(0deg); }
+}
+
+/* --- Glassmorphism Effect --- */
+.glass-navbar {
+    background: rgba(25, 25, 35, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.07); 
+    backdrop-filter: blur(25px); /* Efek kaca tebal */
+    -webkit-backdrop-filter: blur(25px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-radius: 30px;
+    max-width: 900px; /* Diperbesar dari 450px */
+}
+
+/* Kotak Data di dalam Card */
+.data-item {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s ease, background 0.4s ease;
+    height: 100%;
+}
+.data-item:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.tracking-wide {
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+}
+
+/* Efek Transisi Antar Halaman */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Penanda Navbar Aktif */
+.active-nav {
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+}
+/* --- Tambahkan kode ini ke bagian PALING BAWAH file style.css yang lama --- */
+
+/* Panel Kendali (Switches) */
+.control-switch {
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.control-switch:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* State Aktif untuk Kendali */
+.control-switch.active {
+    background: rgba(0, 242, 254, 0.2);
+    border-color: rgba(0, 242, 254, 0.6);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Tombol Mode Spesifik */
+.glass-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 30px;
+    padding: 8px 20px;
+    transition: all 0.3s;
+}
+
+.glass-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.glass-btn.active-mode {
+    background: rgba(255, 0, 127, 0.3); /* Warna pink neon menyala */
+    border-color: rgba(255, 0, 127, 0.8);
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+}
+
+/* Menyesuaikan Canvas Grafik */
+.chart-wrapper {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
